@@ -10,7 +10,7 @@ var mic, recorder, soundFile;
 var state = 0; // mousePress will increment from Record, to Stop, to Play
 var timeSilent = 0;
 var noSoundTime = 100;
-var micThreshold = .015; // Laptop .01, phone .002
+var micThreshold = .2; // Laptop .01, phone .002
 function setup() {
   createCanvas(400,400);
   // create an audio in
@@ -31,7 +31,7 @@ function setup() {
 
 function draw() {
   fill(0);
-  background(200);  
+  background(200);
   micLevel = mic.getLevel();
   console.log(micLevel);
   text('Mic volume: ' + str(micLevel), 20, 40);
@@ -53,7 +53,7 @@ function draw() {
     fill(0);
     text('Recording!', 20, 20);
     fill(255,0,0);
-    
+
     if (timeSilent > noSoundTime) {
       console.log('stop record!');
       state += 1;
@@ -70,7 +70,7 @@ function draw() {
     if (micLevel >micThreshold) {
       timeSilent = 0;
     }
-  } 
+  }
   else if (state == 2) {
     fill(0);
     text('Sending!', 20, 20);
@@ -128,7 +128,7 @@ function upload(postUrl, file) {
 }
 
 function postFile(wavFile, name) {
-  postUrl = '../configurations/compute/';
+  postUrl = '';
   fieldName = 'data';
   filePath = wavFile;
   data = mySaveSound(wavFile, name);
