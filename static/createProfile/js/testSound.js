@@ -98,7 +98,7 @@ function draw() {
 
 
 function postFile(wavFile, name) {
-  postUrl = '';
+  postUrl = 'getKeywords/';
   fieldName = 'data';
   filePath = wavFile;
   data = mySaveSound(wavFile, name);
