@@ -5,10 +5,10 @@
 
 
 .event-info {
+    padding-bottom: 20px;
     margin-bottom: 30px;
     /* padding-bottom: 20px; */
     background-color: white;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 0px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 
@@ -27,8 +27,13 @@
     overflow: hidden;
 }
 
+.event-item {
+  font-size: 14px;
+}
+
 .event-text {
     padding-left: 20px;
+    margin-bottom: 15px;
 }
 
 .event-text h3 {
@@ -41,6 +46,39 @@
     margin-bottom: 0px;
 }
 
+.button-container {
+  background: #2b5876;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  text-align: center;
+  font-size: 12pt;
+  width: 135px;
+  line-height: 30px;
+  border-radius: 8px;
+  font-family: Lato;
+  color: white;
+  vertical-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.create_button {
+  width: 100%;
+  height: 100%;
+}
+
+.details-section {
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+  /* padding-bottom: 20px; */
+  background-color: white;
+}
+
+.details-text {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 15px;
+}
 
 /* FONTS */
 @font-face {
@@ -73,6 +111,14 @@ h5 {
 h3 {
     font-family: 'Open Sans', sans-serif;
     font-size: 12px;
+}
+
+h4 {
+  display: inline-block;
+  font-size: 13px;
+  font-family: Lato;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 p {
