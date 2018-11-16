@@ -27,11 +27,14 @@ def main(audio_file):
     audio = types.RecognitionAudio(content=content)
 
     config = types.RecognitionConfig(
-        encoding=enums.RecognitionConfig.AudioEncoding.MULAW,
+        encoding=enums.RecognitionConfig.AudioEncoding.LINEAR16,
         sample_rate_hertz=44100,
         language_code='en-US')
 
     # Detects speech in the audio file
+    result_txt = ""
     response = client.recognize(config, audio)
     for result in response.results:
         print('Transcript: {}'.format(result.alternatives[0].transcript))
+        result_txt += result.alternatives[0].transcript
+    return result_txt
