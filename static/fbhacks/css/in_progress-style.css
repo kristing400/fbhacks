@@ -1,34 +1,16 @@
 .front_bg{
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: blue;
+    background: #2b5876;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.top-bar{
-  background-color: #162955;
-  height: 20vw
-}
-
-.top-bar a{
-  display: flex;
-  color: white;
-  font-family: Trebuchet MS;
-  font-size: 16pt;
-  text-decoration: none;
-}
-
-.top-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.top-bar-text {
-  margin: 5%
+@font-face {
+    font-family: Lato;
+    src: url(../fonts/Lato-Regular.ttf);
 }
 
 h1 {
-  font-family: Trebuchet MS;
+  font-family: Lato;
   font-size: 16pt;
 }
 
