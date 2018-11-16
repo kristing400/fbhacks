@@ -41,19 +41,19 @@
 			</div>
 		</div>
 		<div class="my-navbar">
-				<div class="col-xs-4 active">
+				<div id="event_a" class="col-xs-4 active" onclick="showEvents()">
 					<h1>Events</h1>
 				</div>
-				<div class="col-xs-4">
+				<div id="history_a" class="col-xs-4" onclick="showHistory()">
 					<h1>History</h1>
 				</div>
-				<div class="col-xs-4">
+				<div id="contact_a" class="col-xs-4" onclick="showContacts()">
 					<h1>Contacts</h1>
 				</div>
 		</div>
 	</div>
 
-	<div class="main-section">
+	<div id="events" class="main-section" style="display: block">
     <a href="event_info">
   		<div class="event">
   			<div class="event-image">
@@ -80,7 +80,7 @@
 	</div>
 
 	
-	<div class="main-section">
+	<div id="history" class="main-section" style="display: none">
 		<div class="event">
 			<div class="event-image">
 					<img src="../static/fbhacks/pics/event1.jpg">
@@ -101,7 +101,7 @@
 
 	</div>
 
-	<div class="main-section">
+	<div id="contacts" class="main-section" style="display: none">
 		<div class="row">
 			<div class="col-xs-6">
 				<div class="user-box">
@@ -114,15 +114,15 @@
 
 		          <table>
 		            <tr>
-		              <td><img src="../static/fbhacks/icons/noun_portfolio_2043826.svg"></td>
+		              <td><img src="../static/fbhacks/icons/user_company.svg"></td>
 		              <td><p class="descriptor">Engineer</p></td>
 		            </tr>
 		            <tr>
-		              <td><img src="../static/fbhacks/icons/noun_company_88781.svg"></td>
+		              <td><img src="../static/fbhacks/icons/user_work.svg"></td>
 		              <td><p class="descriptor">Facebook</p></td>
 		            </tr>
 		            <tr>
-		              <td><img src="../static/fbhacks/icons/noun_Home_2043632.svg"></td>
+		              <td><img src="../static/fbhacks/icons/user_home.svg"></td>
 		              <td><p class="descriptor">California</p></td>
 		            </tr>
 		          </table>
@@ -138,22 +138,22 @@
 
 
 		          <img class="user-icon" src="../static/fbhacks/icons/User.svg">
-		          <p class="descriptor-name">Tiffany</p>
+		          <p class="descriptor-name">Christina</p>
 
 		          <table>
-		            <tr>
-		              <td><img src="../static/fbhacks/icons/noun_portfolio_2043826.svg"></td>
-		              <td><p class="descriptor">Engineer</p></td>
-		            </tr>
-		            <tr>
-		              <td><img src="../static/fbhacks/icons/noun_company_88781.svg"></td>
-		              <td><p class="descriptor">Facebook</p></td>
-		            </tr>
-		            <tr>
-		              <td><img src="../static/fbhacks/icons/noun_Home_2043632.svg"></td>
-		              <td><p class="descriptor">California</p></td>
-		            </tr>
-		          </table>
+									<tr>
+										<td><img src="../static/fbhacks/icons/user_company.svg"></td>
+										<td><p class="descriptor">Engineer</p></td>
+									</tr>
+									<tr>
+										<td><img src="../static/fbhacks/icons/user_work.svg"></td>
+										<td><p class="descriptor">Google</p></td>
+									</tr>
+									<tr>
+										<td><img src="../static/fbhacks/icons/user_home.svg"></td>
+										<td><p class="descriptor">California</p></td>
+									</tr>
+								</table>
 
 		        </div>	
 			</div>
@@ -165,20 +165,20 @@
 
 
 		          <img class="user-icon" src="../static/fbhacks/icons/User.svg">
-		          <p class="descriptor-name">Tiffany</p>
+		          <p class="descriptor-name">Ken</p>
 
 		          <table>
 		            <tr>
-		              <td><img src="../static/fbhacks/icons/noun_portfolio_2043826.svg"></td>
-		              <td><p class="descriptor">Engineer</p></td>
+		              <td><img src="../static/fbhacks/icons/user_company.svg"></td>
+		              <td><p class="descriptor">Designer</p></td>
 		            </tr>
 		            <tr>
-		              <td><img src="../static/fbhacks/icons/noun_company_88781.svg"></td>
-		              <td><p class="descriptor">Facebook</p></td>
+		              <td><img src="../static/fbhacks/icons/user_work.svg"></td>
+		              <td><p class="descriptor">Capital One</p></td>
 		            </tr>
 		            <tr>
-		              <td><img src="../static/fbhacks/icons/noun_Home_2043632.svg"></td>
-		              <td><p class="descriptor">California</p></td>
+		              <td><img src="../static/fbhacks/icons/user_home.svg"></td>
+		              <td><p class="descriptor">New York</p></td>
 		            </tr>
 		          </table>
 
@@ -190,4 +190,5 @@
 
 	</div>
 </body>
+<script src="{% static 'fbhacks/js/index.js' %}"></script>
 </html>
