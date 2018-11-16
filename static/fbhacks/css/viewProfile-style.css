@@ -13,12 +13,25 @@ body {
     width: auto;
 }
 
+#prof {
+    height: 60px;
+    margin-top: 20px;
+    width: auto;
+}
+
+#edit {
+    height: 18px;
+    width: auto;
+    padding-left: 10px;
+    margin-top: 10px;
+}
+
 .profile {
     padding-bottom: 20px;
 }
 
 .tiny-icons {
-    height: 15px;
+    height: 13px;
     width: auto;
 }
 
@@ -60,6 +73,7 @@ body {
 h1 {
     font-family: Lato-Bold;
     font-size: 16px;
+    margin-bottom: 3px;
 }
 
 h2 {
@@ -67,7 +81,16 @@ h2 {
     font-size: 12px;
 }
 
+h4 {
+    font-family: Lato;
+    font-size: 10px;
+    margin-left: 3px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
 p {
     font-family: Lato;
-    font-size: 16px;
+    font-size: 14px;
+    margin-bottom: 0px;
 }
