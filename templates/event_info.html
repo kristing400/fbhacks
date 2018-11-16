@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	{% load static %}
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:700" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'fbhacks/css/bootstrap-theme.min.css' %}">
+  <link rel="stylesheet" href="{% static 'fbhacks/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'fbhacks/css/event_info-style.css' %}">
+  <title>Welcome</title>
+</head>
+<body>
+	<div class="main-section">
+    <div class="event-image">
+        <img src="../static/fbhacks/pics/event1.jpg">
+    </div>
+		<div class="event-info">
+			<div class="event-text">
+        <h5>WeMeet - San Jose Networking & Happy Hour</h5>
+        <h4>
+				      <img height="15" src="../static/fbhacks/icons/noun_date_1430216.svg">
+              <p>November 12, 2018</p>
+        </h4>
+				<img src="../static/fbhacks/icons/noun_Location_865795.svg"><p>Vbar at Hotel Valencia - San Jose, California</p>
+        <div class="button-container">
+            <button id="end_button" onclick="">Create Net</button>
+        </div>
+			</div>
+		</div>
+
+    <div class="details-text">
+      <h5>Details</h5>
+      <p>Join the most vibrant professional networking community in San Jose. Attend live networking events, make new connections, and grow your social network!
+
+        WeMeet is a community of like-minded professionals, entrepreneurs, and founders that meet monthly at unique venues to network & enjoy happy hour. Professionals from all industries are welcome to attend.</p>
+    </div>
+	</div>
+</body>
+</html>
