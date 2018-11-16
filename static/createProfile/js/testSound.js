@@ -97,14 +97,19 @@ function draw() {
 // }
 
 
+function postFile(wavFile, name) {
+  postUrl = '';
+  fieldName = 'data';
+  filePath = wavFile;
+  data = mySaveSound(wavFile, name);
+  var blob = new Blob([data], {'type': 'application/octet-stream'});
+  var fileOfBlob = new File([blob], 'wei.wav');
+  upload(postUrl, fileOfBlob);
+}
+
 function upload(postUrl, file) {
   var formData = new FormData();
   formData.append("filee", file);
-  // var req = new XMLHttpRequest();
-
-  // req.open("POST", postUrl);
-  // req.onload = function(event) { alert(event.target.responseText); };
-  // req.send(formData);
 
   $.ajax({
     type: 'POST',
@@ -117,42 +122,6 @@ function upload(postUrl, file) {
   });
 }
 
-function postFile(wavFile, name) {
-  postUrl = '';
-  fieldName = 'data';
-  filePath = wavFile;
-  data = mySaveSound(wavFile, name);
-  // blobToFile(data, name);
-  var blob = new Blob([data], {'type': 'application/octet-stream'});
-  var fileOfBlob = new File([blob], 'wei.wav');
-  upload(postUrl, fileOfBlob);
-}
-
-function blobToFile(theBlob, fileName){
-  //A Blob() is almost a File() - it's just missing the two properties below which we will add
-  theBlob.lastModifiedDate = new Date();
-  theBlob.name = fileName;
-}
-
-// helper methods to save waves
-function interleave(leftChannel, rightChannel) {
-  var length = leftChannel.length + rightChannel.length;
-  var result = new Float32Array(length);
-  var inputIndex = 0;
-  for (var index = 0; index < length;) {
-    result[index++] = leftChannel[inputIndex];
-    result[index++] = rightChannel[inputIndex];
-    inputIndex++;
-  }
-  return result;
-}
-function writeUTFBytes(view, offset, string) {
-  var lng = string.length;
-  for (var i = 0; i < lng; i++) {
-    view.setUint8(offset + i, string.charCodeAt(i));
-  }
-}
-
 /**
  *  Save a p5.SoundFile as a .wav audio file.
  *
@@ -161,6 +130,25 @@ function writeUTFBytes(view, offset, string) {
  *  @param  {String} name      name of the resulting .wav file.
  */
 function mySaveSound(soundFile, name) {
+  // helper methods to save waves
+  function interleave(leftChannel, rightChannel) {
+    var length = leftChannel.length + rightChannel.length;
+    var result = new Float32Array(length);
+    var inputIndex = 0;
+    for (var index = 0; index < length;) {
+      result[index++] = leftChannel[inputIndex];
+      result[index++] = rightChannel[inputIndex];
+      inputIndex++;
+    }
+    return result;
+  }
+  function writeUTFBytes(view, offset, string) {
+    var lng = string.length;
+    for (var i = 0; i < lng; i++) {
+      view.setUint8(offset + i, string.charCodeAt(i));
+    }
+  }
+
   var leftChannel, rightChannel;
   leftChannel = soundFile.buffer.getChannelData(0);
   // handle mono files

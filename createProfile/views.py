@@ -14,7 +14,6 @@ def index(request):
             text = speechToText.main(fileObj)
         else:
             print("no file")
-        print(text)
         return HttpResponse(text)
     template = loader.get_template("createProfile/index.html")
     return HttpResponse(template.render())
