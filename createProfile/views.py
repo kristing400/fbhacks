@@ -86,6 +86,7 @@ def createContacts():
             'company': company,
             'keywords': keyPoints,
             'saliences': saliences,
+            'uniqWords': list(set(keyPoints)),
             'startTime': convo['startTime'],
             'endTime': convo['endTime']
         }
