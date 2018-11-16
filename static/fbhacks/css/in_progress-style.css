@@ -9,6 +9,16 @@
     src: url(../fonts/Lato-Regular.ttf);
 }
 
+@font-face {
+    font-family: Lato-Bold;
+    src: url(../fonts/Lato-Bold.ttf);
+}
+
+@font-face {
+    font-family: Lato-Light;
+    src: url(../fonts/Lato-Light.ttf);
+}
+
 .flex-container {
   display: flex;
   justify-content: center;
@@ -18,23 +28,35 @@
 
 .box {
   margin-top: 40%;
-  margin-bottom: 10%;
+  margin-bottom: 20%;
   border-color: white;
+  border-style: solid;
   border-width: 3px;
-  width: 40%;
+  padding: 40px;
+  height: 200px;
+  width: 200px;
 }
 
 .button-container {
   border-radius: 8px;
   background-color: white;
-  font-family: Lato;
+  font-family: Lato-Bold;
   text-align: center;
-  width: 20%;
-  font-size: 16pt;
+  width: 30%;
+  line-height: 30px;
+  font-size: 12pt;
+  vertical-align: middle;
 }
 
 h1 {
-  font-family: Lato;
+  font-family: Lato-Light;
   color: white;
-  font-size: 18pt;
+  font-size: 15pt;
+}
+
+h2 {
+  font-family: Lato-Light;
+  color: white;
+  font-size: 15pt;
+  text-align: center;
 }
