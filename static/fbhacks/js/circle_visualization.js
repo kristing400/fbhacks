@@ -43,13 +43,14 @@ function setup() {
 }
 
 function draw() {
-	background(225);
+	background(255);
 	textAlign(CENTER);
 	for (var i = 0; i < circles.length; i++) {
 		var circle = circles[i];
-		fill(204, 101, 192, 127);
+		fill(43, 88, 118);
+		noStroke();
 		ellipse(circle.x, circle.y, circle.diam, circle.diam);
-		fill(0);
+		fill(255);
 		text(circle.word, circle.x, circle.y);
 	}
 }
