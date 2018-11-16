@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('createProfile/', include('createProfile.urls')),
     path('in_progress',views.in_progress),
+    path('event_summary',views.event_summary),
     path('', views.index)
 ]
