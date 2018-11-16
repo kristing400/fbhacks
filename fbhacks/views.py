@@ -13,6 +13,11 @@ def index(request):
     return HttpResponse(template.render())
 
 @csrf_exempt
+def event_info(request):
+    template = loader.get_template("event_info.html")
+    return HttpResponse(template.render())
+
+@csrf_exempt
 def in_progress(request):
     template = loader.get_template("in_progress.html")
     return HttpResponse(template.render())
