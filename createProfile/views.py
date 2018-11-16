@@ -23,6 +23,9 @@ occupation_types = [
 company_names = [
     "facebook", "airbnb", "google", "microsoft", "amazon", "apple", "salesforce"
 ]
+names = [
+    "kristin", "tina", "christina", "ken", "jason", "selena", "chris", "andrew", "dan", "jeff", "katherine"
+]
 
 start_trigger_phrases = [
     "nice to mee you", "my name is", "hi", "hello"
@@ -59,7 +62,7 @@ def editProfiles(request):
                 occupation = word['name']
             elif company == "" and word['name'].lower() != yourCompany and word['name'].lower() in company_names:
                 company = word['name']
-            elif name == "" and word['type'] == 'PERSON' and word['name'].lower() != yourName and not isOccupation(word['name']):
+            elif name == "" and word['type'] == 'PERSON' and word['name'].lower() != yourName and word['name'].lower() in names:
                 name = word['name']
             elif home == "" and word['type'] == 'LOCATION' and word['name'].lower() != yourHome:
                 home = word['name']
