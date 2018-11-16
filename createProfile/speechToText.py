@@ -10,4 +10,4 @@ def main(audio_file):
         return text
     except sr.UnknownValueError:
         print("Google Voice Recognition could not understand audio")
-        return None
+        return ""
