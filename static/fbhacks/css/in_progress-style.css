@@ -48,6 +48,13 @@
   vertical-align: middle;
 }
 
+#end_button {
+  border: 0px;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+}
+
 h1 {
   font-family: Lato-Light;
   color: white;
