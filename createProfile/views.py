@@ -15,7 +15,7 @@ yourName = "tiffany"
 yourOccupation = "engineer"
 yourHome = "fremont"
 yourCompany = "facebook"
-
+convo = None
 occupation_types = [
     "engineer", "artist", "designer", "actor", "architecture", "sales", "baker","musician",
     "lawyer", "doctor", "dancer", "manager", "recruiter", "banker", "accountant", "consultant", "teacher",
@@ -39,14 +39,23 @@ def isOccupation(s):
         if word in occupation_types:
             return True
     return False
+
+@csrf_exempt
+def in_progress(request):
+    template = loader.get_template("createProfile/in_progress.html")
+    return HttpResponse(template.render())
+
 @csrf_exempt
 def index(request):
     template = loader.get_template("createProfile/index.html")
     return HttpResponse(template.render())
-def editProfiles(request):
+
+
+def createContacts():
     dirpath = os.path.dirname(os.path.realpath(__file__))
     with open(dirpath + '/db.json') as src:
         db = json.load(src)
+    result = []
     for convo in db['convos']:
 
         keywords = parser.main(convo['text'])
@@ -54,8 +63,8 @@ def editProfiles(request):
         occupation = ""
         company = ""
         home = ""
-
         keyPoints = []
+        saliences = []
         for word in keywords:
             if occupation == "" and word['name'].lower() != yourOccupation and isOccupation(word['name'].lower()):
                 print("set occupation", word['name'])
@@ -67,7 +76,8 @@ def editProfiles(request):
             elif home == "" and word['type'] == 'LOCATION' and word['name'].lower() != yourHome:
                 home = word['name']
             else:
-                keyPoints.append((word['name'], word['salience']))
+                keyPoints.append(word['name'])
+                saliences.append(word['salience'])
 
         newContact = {
             'name': name,
@@ -75,21 +85,24 @@ def editProfiles(request):
             'home': home,
             'company': company,
             'keywords': keyPoints,
+            'saliences': saliences,
             'startTime': convo['startTime'],
             'endTime': convo['endTime']
         }
 
-        db['contacts'].append(newContact)
+        result.append(newContact)
+
+    db['contacts'] += result
     db['convos'] = []
     with open(dirpath + '/db.json', 'w+') as outfile:
         json.dump(db, outfile)
+    return db['contacts']
+    # return result
 
-    template = loader.get_template("createProfile/editProfiles.html")
-    return HttpResponse(template.render({'contacts': db['contacts']}))
 
 @csrf_exempt
 def getKeywords(request):
-    global inConvo
+    global inConvo, convo
     dirpath = os.path.dirname(os.path.realpath(__file__))
     with open(dirpath + '/db.json') as src:
         db = json.load(src)
@@ -102,13 +115,17 @@ def getKeywords(request):
             if text != "":
                 if inConvo:
                     # look for end phrases assume a convo exists so just append to end of convos
-                    db['convos'][-1]['text'] = db['convos'][-1]['text'] + " " + text
+                    convo['text'] = convo['text'] + " " + text
                     for phrase in end_trigger_phrases:
                         if phrase in text:
                             # trigger end of convo
                             ts = time.time()
-                            db['convos'][-1]['endTime'] = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+                            convo['endTime'] = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+                            db['convos'].append(convo)
                             inConvo = False
+                            with open(dirpath + '/db.json', 'w+') as outfile:
+                                json.dump(db, outfile)
+                            break
                 else:
                     # looking for start trigger phrase
                     for phrase in start_trigger_phrases:
@@ -116,17 +133,34 @@ def getKeywords(request):
                             inConvo = True
                             ts = time.time()
                             startTime = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
-                            db['convos'].append({
+                            convo = {
                                 'text': text,
                                 'startTime': startTime,
                                 'endTime': None
-                            })
+                            }
         else:
             print("no file")
-        with open(dirpath + '/db.json', 'w+') as outfile:
-            json.dump(db, outfile)
+
     return HttpResponse(db)
 
+@csrf_exempt
+def summary(request):
+    newContacts = createContacts()
+    template = loader.get_template("createProfile/event_summary.html")
+    return HttpResponse(template.render({"contacts": newContacts}))
+@csrf_exempt
 def viewProfile(request):
+    result = None
+    if request.method == "POST":
+        if "contactName" in request.POST:
+            ourName = request.POST["contactName"]
+            print(ourName)
+            dirpath = os.path.dirname(os.path.realpath(__file__))
+            with open(dirpath + '/db.json') as src:
+                db = json.load(src)
+            for contact in db["contacts"]:
+                if contact["name"] == ourName:
+                    print(contact)
+                    result = contact
     template = loader.get_template("createProfile/viewProfile.html")
-    return HttpResponse(template.render())
+    return HttpResponse(template.render({"contact": result}))
