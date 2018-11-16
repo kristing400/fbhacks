@@ -9,6 +9,17 @@
     src: url(../fonts/Lato-Regular.ttf);
 }
 
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
+
+.box {
+  margin-top: 30%;
+  border-color: white;
+  border-width: 3px;
+}
+
 h1 {
   font-family: Lato;
   font-size: 16pt;
