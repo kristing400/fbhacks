@@ -49,10 +49,13 @@ def in_progress(request):
 def index(request):
     template = loader.get_template("createProfile/index.html")
     return HttpResponse(template.render())
-def editProfiles(request):
+
+
+def createContacts():
     dirpath = os.path.dirname(os.path.realpath(__file__))
     with open(dirpath + '/db.json') as src:
         db = json.load(src)
+    result = []
     for convo in db['convos']:
 
         keywords = parser.main(convo['text'])
@@ -60,8 +63,8 @@ def editProfiles(request):
         occupation = ""
         company = ""
         home = ""
-
         keyPoints = []
+        saliences = []
         for word in keywords:
             if occupation == "" and word['name'].lower() != yourOccupation and isOccupation(word['name'].lower()):
                 print("set occupation", word['name'])
@@ -73,7 +76,8 @@ def editProfiles(request):
             elif home == "" and word['type'] == 'LOCATION' and word['name'].lower() != yourHome:
                 home = word['name']
             else:
-                keyPoints.append((word['name'], word['salience']))
+                keyPoints.append(word['name'])
+                saliences.append(word['salience'])
 
         newContact = {
             'name': name,
@@ -81,17 +85,20 @@ def editProfiles(request):
             'home': home,
             'company': company,
             'keywords': keyPoints,
+            'saliences': saliences,
             'startTime': convo['startTime'],
             'endTime': convo['endTime']
         }
 
-        db['contacts'].append(newContact)
+        result.append(newContact)
+
+    db['contacts'] += result
     db['convos'] = []
     with open(dirpath + '/db.json', 'w+') as outfile:
         json.dump(db, outfile)
+    return db['contacts']
+    # return result
 
-    template = loader.get_template("createProfile/editProfiles.html")
-    return HttpResponse(template.render({'contacts': db['contacts']}))
 
 @csrf_exempt
 def getKeywords(request):
@@ -135,6 +142,13 @@ def getKeywords(request):
             print("no file")
 
     return HttpResponse(db)
+
+@csrf_exempt
+def summary(request):
+    newContacts = createContacts()
+
+    template = loader.get_template("createProfile/event_summary.html")
+    return HttpResponse(template.render({"contacts": newContacts}))
 
 def viewProfile(request):
     template = loader.get_template("createProfile/viewProfile.html")
