@@ -4,33 +4,28 @@ from google.cloud.language import enums
 from google.cloud.language import types
 import codecs
 
-filename='text.txt'
+def main(inputText):
+    # Instantiates a client
+    client = language.LanguageServiceClient()
 
-# Instantiates a client
-client = language.LanguageServiceClient()
+    # Instantiates a plain text document.
+    document = types.Document(
+        content=inputText,
+        type=enums.Document.Type.PLAIN_TEXT)
 
-# The text to analyze
-with codecs.open(filename,'r',encoding='utf8') as f:
-    text = f.read()
+    # Detects entities in the document. You can also analyze HTML with:
+    #   document.type == enums.Document.Type.HTML
+    entities = client.analyze_entities(document).entities
 
-# Instantiates a plain text document.
-document = types.Document(
-    content=text,
-    type=enums.Document.Type.PLAIN_TEXT)
+    # entity types from enums.Entity.Type
+    entity_type = ('UNKNOWN', 'PERSON', 'LOCATION', 'ORGANIZATION',
+                   'EVENT', 'WORK_OF_ART', 'CONSUMER_GOOD', 'OTHER')
 
-# Detects entities in the document. You can also analyze HTML with:
-#   document.type == enums.Document.Type.HTML
-entities = client.analyze_entities(document).entities
-
-# entity types from enums.Entity.Type
-entity_type = ('UNKNOWN', 'PERSON', 'LOCATION', 'ORGANIZATION',
-               'EVENT', 'WORK_OF_ART', 'CONSUMER_GOOD', 'OTHER')
-
-for entity in entities:
-    print('=' * 20)
-    print(u'{:<16}: {}'.format('name', entity.name))
-    print(u'{:<16}: {}'.format('type', entity_type[entity.type]))
-    print(u'{:<16}: {}'.format('metadata', entity.metadata))
-    print(u'{:<16}: {}'.format('salience', entity.salience))
-    print(u'{:<16}: {}'.format('wikipedia_url',
-          entity.metadata.get('wikipedia_url', '-')))
+    for entity in entities:
+        print('=' * 20)
+        print(u'{:<16}: {}'.format('name', entity.name))
+        print(u'{:<16}: {}'.format('type', entity_type[entity.type]))
+        print(u'{:<16}: {}'.format('metadata', entity.metadata))
+        print(u'{:<16}: {}'.format('salience', entity.salience))
+        print(u'{:<16}: {}'.format('wikipedia_url',
+              entity.metadata.get('wikipedia_url', '-')))
