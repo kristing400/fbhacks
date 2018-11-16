@@ -2,32 +2,37 @@
     background: #2b5876;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    height: 210px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
 }
 
-.top-section #propic {
+.top-section .heading #propic {
     margin-top: 20px;
     border-radius: 50px;
     border: 1px solid rgba(255, 255, 255, .5);
 }
 
-.top-section #logo {
+.top-section .heading #logo {
     height: auto;
-    width: 80px;
+    width: 60px;
     margin-top: 10px;
     margin-bottom: 20px;
 }
 
 .top-section .col-xs-4 {
     text-align: center;
-    color: white;
-    font-size: 14px;
 }
 
 .top-section .left-align-text {
     display: inline-block;
     text-align: left;
     font-family: Lato-Hairline;
+    color: white;
+    font-size: 14px;
+    padding-bottom: 20px;
 }
 
 .top-section .left-align-text strong {
@@ -35,15 +40,18 @@
 }
 
 .main-section {
+    margin-top: 260px;
     padding-top: 10px;
     padding-bottom: 10px;
     background-color: #e8e8e8;
+    overflow-y: auto;
 }
 
 .my-navbar {
     height: 65px;
     line-height: 65px;
     text-align: center;
+    background-color: white;
 }
 
 .my-navbar .col-xs-4 {
@@ -53,7 +61,7 @@
 }
 
 .my-navbar h1 {
-    font-family: Lato-Bold;
+    font-family: Lato;
     font-size: 18px;
 }
 
@@ -62,6 +70,10 @@
     border-bottom-color: rgb(14, 102, 254);
     border-bottom-style: solid;
     color: blue;
+}
+
+.my-navbar .active h1 {
+    font-family: Lato-Bold;
 }
 
 /* .main-section {
