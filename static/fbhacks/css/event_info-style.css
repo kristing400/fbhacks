@@ -9,6 +9,7 @@
     margin-bottom: 15px;
     /* padding-bottom: 20px; */
     background-color: white;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 0px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 
@@ -44,10 +45,6 @@
     margin-top: 5px;
     padding-bottom: 20px;
     margin-bottom: 0px;
-}
-
-.button-container {
-
 }
 
 #create_button {
