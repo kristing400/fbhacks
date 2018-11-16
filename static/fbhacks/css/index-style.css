@@ -1,3 +1,7 @@
+body{
+    background-color: #e8e8e8;4
+}
+
 .top-section {
     background: #2b5876;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
@@ -108,11 +112,12 @@
 }
 
 .event-text {
-    padding-left: 20px;
+    padding: 20px;
 }
 
 .event-text h3 {
-    margin-bottom: 5px;
+    margin-bottom: 0px;
+    margin-top: 0px;
 }
 
 .event-text h4 {
@@ -121,8 +126,6 @@
 }
 
 .event-text p {
-    margin-top: 5px;
-    padding-bottom: 20px;
     margin-bottom: 0px;
 }
 
@@ -130,6 +133,25 @@
     height: 65px;
 }
 
+.view-net-button {
+    font-family: Lato-Bold;
+    font-size: 16px;
+    color: white;
+    border-radius: 8px;
+    width: 135px;
+    height: 40px;
+    margin-top: 15px;
+    background: #2b5876;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.view-net-button-container{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;;
+}
 
 /* FONTS */
 @font-face {
