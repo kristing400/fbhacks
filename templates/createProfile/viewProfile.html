@@ -23,24 +23,25 @@
 				<img id="prof" src="../../static/fbhacks/icons/user_profile.png">
 		</div>
 		<div class="col-xs-8 description">
-			<h1>{{contact.name}}</h1>
+			
+			<h1><input type="text" name="occupation" value={{contact.name}}></h1>
 			<table>
           <tr>
               <td align="center"><img class="tiny-icons" src="../../static/fbhacks/icons/user_work.svg"></td>
               <td>
-                  <h4>{{contact.occupation}}</h4>
+				  <input type="text" name="occupation" value={{contact.occupation}}>
               </td>
           </tr>
           <tr>
             <td align="center"><img class="tiny-icons" src="../../static/fbhacks/icons/user_company.svg"></td>
             <td>
-                <h4>{{contact.company}}</h4>
+				<input type="text" name="occupation" value={{contact.company}}>
             </td>
           </tr>
           <tr>
             <td align="center"><img class="tiny-icons" src="../../static/fbhacks/icons/user_home.svg"></td>
             <td>
-                <h4>{{contact.home}}</h4>
+				<input type="text" name="occupation" value={{contact.home}}>
             </td>
           </tr>
       </table>
