@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'fbhacks/css/bootstrap-theme.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fbhacks/css/bootstrap.min.css' %}">
+
+  </head>
+  <body>
+    {% for contact in contacts %}
+    <div>
+      <input value={{contact.name}}>
+      <input value={{contact.occupation}}>
+      <input value={{contact.home}}>
+      <input value={{contact.company}}>
+      startTime: {{ contact.startTime }}
+      endTime : {{ contact.endTime }}
+      <ul>
+      {% for word in contact.keywords %}
+        <li>{{word}}</li>
+      {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+
+  </body>
+</html>
