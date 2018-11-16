@@ -27,16 +27,17 @@ def getKeywords(request):
             text = speechToText.main(fileObj)
             if 'convo' not in db:
                 db['convo'] = ""
-            db['convo'] = db['convo'] + " " + text
-            if convoCounter == maxCounter:
-                keywords = parser.main(db['convo'])
-                if 'text' not in db:
-                    db['text'] = []
-                db['text'] = db['text'] + keywords
-                convoCounter = 0
-                db['convo'] = ""
-            else:
-                convoCounter += 1
+            if text:
+                db['convo'] = db['convo'] + " " + text
+                if convoCounter == maxCounter:
+                    keywords = parser.main(db['convo'])
+                    if 'text' not in db:
+                        db['text'] = []
+                    db['text'] = db['text'] + keywords
+                    convoCounter = 0
+                    db['convo'] = ""
+                else:
+                    convoCounter += 1
         else:
             print("no file")
         with open(dirpath + '/db.json', 'w+') as outfile:
