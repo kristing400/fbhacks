@@ -10,7 +10,9 @@
   <link rel="stylesheet" href="{% static 'fbhacks/css/bootstrap-theme.min.css' %}">
   <link rel="stylesheet" href="{% static 'fbhacks/css/bootstrap.min.css' %}">
   <link rel="stylesheet" href="{% static 'fbhacks/css/viewProfile-style.css' %}">
-  <title>Welcome</title>
+	<title>Welcome</title>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.js"></script>
+	<script src="{% static 'fbhacks/js/circle_visualization.js' %}"></script>
 </head>
 <body>
 	<div class="top-bar">
@@ -61,6 +63,7 @@
 
 	<div class="row convo">
 		<h2>YOUR CONVERSATION</h2>
+		<div id="p5-canvas"></div>
 	</div>
 
 </body>
