@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'fbhacks/css/bootstrap-theme.min.css' %}">
+  <link rel="stylesheet" href="{% static 'fbhacks/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'fbhacks/css/in_progress-style.css' %}">
+  <title>Welcome</title>
+</head>
+
+<body class="front_bg">
+
+  <div id="container">
+    <img id="logo" src="../static/fbhacks/pics/Net-logo-white.svg">
+
+    <div id="title-block">
+      <p class="subtitle">OVERVIEW</p>
+      <p class="title">WeMeet - SanJose Networking & Happy Hour</p>
+    </div>
+
+    <div id="stats-block" class="row">
+      <div class="col-xs-4">
+        <div class="left-align-text">
+          <strong>2</strong><br/>people<br/>met  
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="left-align-text">
+          <strong>4</strong><br/>minutes<br/>total
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="left-align-text">
+          <strong>44</strong><br/>minutes/<br/>person
+        </div>
+      </div>
+    </div>
+
+    <hr id="divider">
+
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="user-box">
+          <p class="descriptor-name">Tiffany</p>
+
+          <table>
+            <tr>
+              <td></td>
+              <td><p class="descriptor">Engineer</p></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><p class="descriptor">Facebook</p></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><p class="descriptor">California</p></td>
+            </tr>
+          </table>
+
+        </div>
+      </div>
+      <div class="col-xs-6"></div>
+    </div>
+
+  </div>
+
+</body>
+<script type="text/javascript" src="{% static 'fbhacks/js/time.js' %}"></script>
+</html>

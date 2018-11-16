@@ -21,3 +21,8 @@ def event_info(request):
 def in_progress(request):
     template = loader.get_template("in_progress.html")
     return HttpResponse(template.render())
+
+@csrf_exempt
+def event_summary(request):
+    template = loader.get_template("event_summary.html")
+    return HttpResponse(template.render())
