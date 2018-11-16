@@ -12,149 +12,18 @@
 .flex-container {
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 
 .box {
   margin-top: 30%;
   border-color: white;
   border-width: 3px;
+  width: 10%;
 }
 
 h1 {
   font-family: Lato;
+  color: white;
   font-size: 16pt;
-}
-
-h2 {
-  font-family: Trebuchet MS;
-  font-size: 22px;
-  font-weight: bold;
-  border-color: #9013FE;
-  border-style: solid;
-  border-width: 0 0 0 2px;
-}
-
-.main-section {
-  padding: 0 5% 0 5%;
-}
-
-.heading {
-  margin: 10% 0 8% 0;
-}
-
-.sub-heading {
-  padding: 0 0 0 10px;
-}
-
-.indented {
-  margin: 0 12px 0 12px;
-}
-
-.desc {
-  font-family: TrebuchetMS-Bold;
-  font-size: 16px;
-  color: #9E9E9E;
-  letter-spacing: 0;
-}
-
-.subtitle {
-  margin: 4% 0 4% 0;
-}
-
-.space {
-  height: 10px;
-}
-
-#alert_img {
-  width: 90%;
-  height: auto;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  margin: 5% 0 7% 0;
-}
-
-.form-group label {
-  font-family: TrebuchetMS-Bold;
-  font-size: 16px;
-  margin: 0 0 5px 0;
-}
-
-.form-group input {
-  -webkit-appearance: none;
-  border-radius: 0;
-  border-color: #9013FE;
-  border-width: 0 0 1px 0;
-  font-family: TrebuchetMS;
-  font-size: 16px;
-  outline: none;
-}
-
-.form-group form {
-  border-color: black;
-  border-style: solid;
-  border-width: 0 0 1px 0;
-  font-family: TrebuchetMS;
-  font-size: 16px;
-}
-
-.form-group form option {
-/*  font-size: 16px;
-*/}
-
-form select {
-  width: 100%;
-}
-
-#height-form {
-  display: flex;
-
-}
-
-#height-form .form-group {
-  flex-grow: 1;
-}
-
-.add-another {
-  font-family: TrebuchetMS;
-  color: #9013FE;
-  font-size: 16px;
-  text-align: center;
-  -webkit-appearance: none;
-  border: 0;
-}
-
-.phrase-text {
-  font-family: TrebuchetMS;
-  font-size: 16px;
-}
-
-.input-button {
-  background-color: transparent;
-  -webkit-appearance: none;
-  border-radius: 100%;
-  width: 30px;
-  height: 30px;
-  border: 0;
-  outline: none;
-}
-
-.phrase-button-container {
-  display: flex;
-  justify-content: space-between;
-  border-color: #AEB6BF;
-  border-style: solid;
-  border-width: 0 0 1px 0;
-}
-
-.new-phrase-text {
-}
-
-#home-link {
-  color: #162955;
 }
