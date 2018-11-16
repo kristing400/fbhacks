@@ -84,7 +84,7 @@ function setup() {
 		var diam = (data[key]) * 100+40;
 
 		function addCircle(){
-			for (var y = 100; y < 350; y++) {
+			for (var y = 75; y < 350; y++) {
 				for (var x = 100; x < 350; x++){
 					if (doesItFitGrid(grid, diam, x, y) == true) {
 						markGrid(grid, diam, x, y);
