@@ -91,6 +91,7 @@ h2 {
   font-weight: bold;
   font-size: 11px;
   margin-bottom: 0;
+  padding: 0;
 }
 .title{
   font-family: Lato-Bold;
@@ -106,6 +107,7 @@ h2 {
 
 #divider {
   margin: 30px 0;
+  border-color: #979797;
 }
 
 .user-box{
@@ -120,9 +122,62 @@ h2 {
   font-weight: bold;
   font-size: 16px;
   text-align: center;
+  margin-top: 5px;
 }
 
 .descriptor{
   font-size: 12px;
   margin-bottom: 5px;
+  margin-left: 5px;
+}
+
+td img{
+  height: 12px;
+      display: block;
+    margin: 0 auto;
+    position: relative;
+    top: -3px;
+}
+
+.user-icon{
+  display: block;
+  margin: 0 auto;
+}
+
+.forward-arrow{
+  position: absolute;
+  top: 50%;
+  right: 20px;
+}
+
+.keywords {
+  font-family: Lato;
+  color: white;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.box-time{
+  color: white;
+  font-family: Lato;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+#timeline-line{
+  position: absolute;
+  border-left:1px solid #fff;
+  height:500px;
+  left: 109px;
+  top: 300px;
+  z-index: -1;
+
+}
+
+.row {
+  margin-bottom: 30px;
+}
+
+.col-xs-6 .subtitle {
+  margin-top: 22px;
 }
