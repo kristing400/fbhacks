@@ -24,7 +24,7 @@ company_names = [
     "facebook", "airbnb", "google", "microsoft", "amazon", "apple", "salesforce"
 ]
 names = [
-    "kristin", "tina", "christina", "ken", "jason", "selena", "chris", "andrew", "dan", "jeff", "katherine"
+    "kristin", "kristen", "christine", "kevin", "stephanie", "tina", "christina", "ken", "jason", "selena", "chris", "andrew", "dan", "jeff", "katherine"
 ]
 
 start_trigger_phrases = [
