@@ -10,7 +10,7 @@ var mic, recorder, soundFile;
 var state = 0; // mousePress will increment from Record, to Stop, to Play
 var timeSilent = 0;
 var noSoundTime = 100;
-var micThreshold = .2; // Laptop .01, phone .002
+var micThreshold = .1; // Laptop .01, phone .002
 function setup() {
   createCanvas(400,400);
   // create an audio in
@@ -33,7 +33,6 @@ function draw() {
   fill(0);
   background(200);
   micLevel = mic.getLevel();
-  console.log(micLevel);
   text('Mic volume: ' + str(micLevel), 20, 40);
 
   if (micLevel > micThreshold) {
@@ -44,7 +43,6 @@ function draw() {
     fill(0);
     text('Just started. Speak to start recording.', 20, 20);
     if (micLevel > micThreshold) {
-      console.log('record!');
       recorder.record(soundFile);
       state += 1;
     }
@@ -55,15 +53,11 @@ function draw() {
     fill(255,0,0);
 
     if (timeSilent > noSoundTime) {
-      console.log('stop record!');
       state += 1;
       timeSilent = 0;
       fill(0,255,0);
     }
     ellipse(200,100,50,50);
-    if (timeSilent % 1000 == 0) {
-      console.log(timeSilent);
-    }
     if (micLevel < micThreshold) {
       timeSilent += 1;
     }
@@ -110,8 +104,6 @@ function upload(postUrl, file) {
 
   // req.open("POST", postUrl);
   // req.onload = function(event) { alert(event.target.responseText); };
-  console.log(formData);
-  console.log(formData.get("filee"));
   // req.send(formData);
 
   $.ajax({
@@ -121,9 +113,7 @@ function upload(postUrl, file) {
     processData: false,
     contentType: false
   }).done(function(data) {
-        console.log("done");
-       console.log(data);
-       console.log('done2');
+       $("#keywords").text(data);
   });
 }
 
@@ -133,7 +123,6 @@ function postFile(wavFile, name) {
   filePath = wavFile;
   data = mySaveSound(wavFile, name);
   // blobToFile(data, name);
-  console.log(data);
   var blob = new Blob([data], {'type': 'application/octet-stream'});
   var fileOfBlob = new File([blob], 'wei.wav');
   upload(postUrl, fileOfBlob);
