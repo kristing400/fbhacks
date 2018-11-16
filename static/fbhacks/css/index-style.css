@@ -1,3 +1,8 @@
+a, a:hover, a:active, a:visited, a:focus {
+  text-decoration:none;
+  color: black;
+}
+
 body{
     background-color: #e8e8e8;4
 }
@@ -33,14 +38,14 @@ body{
 .top-section .left-align-text {
     display: inline-block;
     text-align: left;
-    font-family: Lato-Hairline;
+    font-family: Lato-Light;
     color: white;
     font-size: 14px;
     padding-bottom: 20px;
 }
 
 .top-section .left-align-text strong {
-    font-family: Lato-Light;
+    font-family: Lato;
 }
 
 .main-section {
@@ -215,11 +220,6 @@ td img{
 @font-face {
     font-family: Lato-Light;
     src: url(../fonts/Lato-Light.ttf);
-}
-
-@font-face {
-    font-family: Lato-Hairline;
-    src: url(../fonts/Lato-Hairline.ttf);
 }
 
 h3 {
