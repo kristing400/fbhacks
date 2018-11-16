@@ -126,3 +126,7 @@ def getKeywords(request):
         with open(dirpath + '/db.json', 'w+') as outfile:
             json.dump(db, outfile)
     return HttpResponse(db)
+
+def viewProfile(request):
+    template = loader.get_template("createProfile/viewProfile.html")
+    return HttpResponse(template.render())
