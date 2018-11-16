@@ -57,6 +57,12 @@ function doesItFitGrid(grid, diam, x, y) {
 	return true;
 }
 
+var Lato;
+function preload() {
+  Lato = loadFont('../../static/fbhacks/fonts/Lato-Regular.ttf');
+}
+
+
 function setup() {
 	var width = 400;
 	var height = 400;
@@ -69,6 +75,8 @@ function setup() {
 	console.log(saliences);
 
 	canvas.parent('p5-canvas');
+
+
 
 	var grid = new int(400);
 
@@ -102,8 +110,8 @@ function setup() {
 		var diam = (saliences[j] * 300+50);
 		console.log(words[j], diam);
 		function addCircle(){
-			for (var y = 100; y < 350; y++) {
-				for (var x = 100; x < 350; x++){
+			for (var y = 50; y < 350; y++) {
+				for (var x = 50; x < 350; x++){
 					if (doesItFitGrid(grid, diam, x, y) == true) {
 						markGrid(grid, diam, x, y);
 						circles.push({
@@ -122,15 +130,19 @@ function setup() {
 	}
 }
 
+
 function draw() {
 	background(255);
 	textAlign(CENTER);
+
+
 	for (var i = 0; i < circles.length; i++) {
 		var circle = circles[i];
 		fill(43, 88, 118);
 		noStroke();
 		ellipse(circle.x, circle.y, circle.diam, circle.diam);
 		fill(255);
+		textFont(Lato);
 		text(circle.word, circle.x, circle.y);
 	}
 }
