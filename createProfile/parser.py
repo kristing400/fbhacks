@@ -30,7 +30,7 @@ def main(inputText):
     maxItems = 10
     for i in range(min(maxItems,len(entities))):
         entity = entities[i]
-        result.append({'word': entity.name, 'type': entity_type[entity.type]})
+        result.append({'word': entity.name, 'type': entity_type[entity.type], 'salience': entity.salience})
     return result
     # for entity in entities:
     #     print('=' * 20)
