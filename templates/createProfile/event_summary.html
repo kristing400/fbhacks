@@ -49,7 +49,10 @@
 
       <div class="col-xs-6">
         <p class="box-time">{{contact.startTime}}</p>
-        <div class="user-box">
+        <form method="post" class="form-group" action="../viewProfile/">
+           <input type="hidden" name="contactName" value="{{contact.name}}">
+
+        <button class="user-box" type="submit">
 
           <img class="forward-arrow" src="../../static/fbhacks/icons/forward-arrow.svg">
 
@@ -59,20 +62,21 @@
 
           <table>
             <tr>
-              <td><img src="../../static/fbhacks/icons/noun_portfolio_2043826.svg"></td>
+              <td><img src="../../static/fbhacks/icons/user_work.svg"></td>
               <td><p class="descriptor">{{contact.occupation}}</p></td>
             </tr>
             <tr>
-              <td><img src="../../static/fbhacks/icons/noun_company_88781.svg"></td>
+              <td><img src="../../static/fbhacks/icons/user_company.svg"></td>
               <td><p class="descriptor">{{contact.company}}</p></td>
             </tr>
             <tr>
-              <td><img src="../../static/fbhacks/icons/noun_Home_2043632.svg"></td>
+              <td><img src="../../static/fbhacks/icons/user_home.svg"></td>
               <td><p class="descriptor">{{contact.home}}</p></td>
             </tr>
           </table>
 
-        </div>
+        </button>
+      </form>
       </div>
 
       <div class="col-xs-6">
@@ -82,7 +86,7 @@
 
     </div>
     {% endfor %}
-    
+
 
   </div>
 

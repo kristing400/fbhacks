@@ -146,10 +146,21 @@ def getKeywords(request):
 @csrf_exempt
 def summary(request):
     newContacts = createContacts()
-
     template = loader.get_template("createProfile/event_summary.html")
     return HttpResponse(template.render({"contacts": newContacts}))
-
+@csrf_exempt
 def viewProfile(request):
+    result = None
+    if request.method == "POST":
+        if "contactName" in request.POST:
+            ourName = request.POST["contactName"]
+            print(ourName)
+            dirpath = os.path.dirname(os.path.realpath(__file__))
+            with open(dirpath + '/db.json') as src:
+                db = json.load(src)
+            for contact in db["contacts"]:
+                if contact["name"] == ourName:
+                    print(contact)
+                    result = contact
     template = loader.get_template("createProfile/viewProfile.html")
-    return HttpResponse(template.render())
+    return HttpResponse(template.render({"contact": result}))
