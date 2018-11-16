@@ -1,0 +1,72 @@
+body {
+    background: #e8e8e8;
+}
+
+.top-bar {
+    background: #2b5876;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#back_arrow {
+    height: 40px;
+    width: auto;
+}
+
+.profile {
+    padding-bottom: 20px;
+}
+
+.tiny-icons {
+    height: 15px;
+    width: auto;
+}
+
+.row {
+    margin-bottom: 10px;
+    background: white;
+    padding-left: 20px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 0px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.description {
+    font-family: Lato;
+    font-size: 12px;
+}
+
+#event-image {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    padding-bottom: 0px;
+}
+
+@font-face {
+    font-family: Lato;
+    src: url(../fonts/Lato-Regular.ttf);
+}
+
+@font-face {
+    font-family: Lato-Bold;
+    src: url(../fonts/Lato-Bold.ttf);
+}
+
+@font-face {
+    font-family: Lato-Light;
+    src: url(../fonts/Lato-Light.ttf);
+}
+
+h1 {
+    font-family: Lato-Bold;
+    font-size: 16px;
+}
+
+h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+}
+
+p {
+
+}

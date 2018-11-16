@@ -147,11 +147,6 @@
     src: url(../fonts/Lato-Light.ttf);
 }
 
-@font-face {
-    font-family: Lato-Hairline;
-    src: url(../fonts/Lato-Hairline.ttf);
-}
-
 h3 {
     font-family: 'Open Sans', sans-serif;
     font-size: 12px;

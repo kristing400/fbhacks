@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	{% load static %}
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:700" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'fbhacks/css/bootstrap-theme.min.css' %}">
+  <link rel="stylesheet" href="{% static 'fbhacks/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'fbhacks/css/viewProfile-style.css' %}">
+  <title>Welcome</title>
+</head>
+<body>
+	<div class="top-bar">
+		<img id="back_arrow" src="../../static/fbhacks/icons/white_arrow.png">
+	</div>
+	<div class="row profile">
+		<div class="col-xs-2">
+				<img id="back_arrow" src="../../static/fbhacks/icons/user_profile.png">
+		</div>
+		<div class="col-xs-8 description">
+			<h1>Tiffany</h1>
+			<img class="tiny-icons" src="../../static/fbhacks/icons/user_work.svg">Engineers<br/>
+			<img class="tiny-icons" src="../../static/fbhacks/icons/user_company.svg">Facebook<br/>
+			<img class="tiny-icons" src="../../static/fbhacks/icons/user_home.svg">California<br/>
+		</div>
+		<div class="col-xs-2">
+			<img id="" src="../../static/fbhacks/icons/user_edit.svg">
+		</div>		
+	</div>
+
+	<div class="row where">
+		<div class="col-xs-6">
+			<h2>YOU MET AT</h2>
+			<p>WeMeet - San Jose</p>
+			<p>Networking & Happy Hour</p>
+		</div>
+		<div class="col-xs-6">
+			<img id="event-image" src="../../static/fbhacks/pics/event1.jpg">
+		</div>
+	</div>
+
+	<div class="row convo">
+		<h2>YOUR CONVERSATION</h2>
+	</div>
+		
+</body>
+</html>
