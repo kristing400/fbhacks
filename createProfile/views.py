@@ -33,6 +33,7 @@ def getKeywords(request):
                     keywords = parser.main(db['convo'])
                     if 'text' not in db:
                         db['text'] = []
+                    print(keywords)
                     db['text'] = db['text'] + keywords
                     convoCounter = 0
                     db['convo'] = ""

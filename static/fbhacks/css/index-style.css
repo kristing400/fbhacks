@@ -1,0 +1,156 @@
+.top-section {
+    background: #2b5876;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 210px;
+}
+
+.top-section #propic {
+    margin-top: 20px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, .5);
+}
+
+.top-section #logo {
+    height: auto;
+    width: 80px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.top-section .col-xs-4 {
+    text-align: center;
+    color: white;
+    font-size: 14px;
+}
+
+.top-section .left-align-text {
+    display: inline-block;
+    text-align: left;
+    font-family: Lato-Hairline;
+}
+
+.top-section .left-align-text strong {
+    font-family: Lato-Light;
+}
+
+.main-section {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #e8e8e8;
+}
+
+.my-navbar {
+    height: 65px;
+    line-height: 65px;
+    text-align: center;
+}
+
+.my-navbar .col-xs-4 {
+    height: 65px;
+    line-height: 65px;
+    text-align: center;
+}
+
+.my-navbar h1 {
+    font-family: Lato-Bold;
+    font-size: 18px;
+}
+
+.my-navbar .active {
+    /* font-size: 30px; */
+    border-bottom-color: rgb(14, 102, 254);
+    border-bottom-style: solid;
+    color: blue;
+}
+
+/* .main-section {
+    width: 411;
+    height: 532;
+    overflow: scroll;
+} */
+
+.event {
+    margin-bottom: 10px;
+    /* padding-bottom: 20px; */
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 0px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+.event-image img {
+    /* position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0; */
+    max-width: 100%;
+    height: auto;
+    top: 50%;
+    /* left: 50%; */
+    transform: translate(0%,-25%);
+    /* object-fit: contain; */
+}
+.event-image {
+    position: relative;
+    width: 412px;
+    height: 146px;
+    overflow: hidden;
+}
+
+.event-text {
+    padding-left: 20px;
+}
+
+.event-text h3 {
+    margin-bottom: 5px;
+}
+
+.event-text h4 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.event-text p {
+    margin-top: 5px;
+    padding-bottom: 20px;
+    margin-bottom: 0px;
+}
+
+.navbar {
+    height: 65px;
+}
+
+
+/* FONTS */
+@font-face {
+    font-family: Lato;
+    src: url(../fonts/Lato-Regular.ttf);
+}
+
+@font-face {
+    font-family: Lato-Bold;
+    src: url(../fonts/Lato-Bold.ttf);
+}
+
+@font-face {
+    font-family: Lato-Light;
+    src: url(../fonts/Lato-Light.ttf);
+}
+
+@font-face {
+    font-family: Lato-Hairline;
+    src: url(../fonts/Lato-Hairline.ttf);
+}
+
+h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+}
+
+h4 {
+    font-family: Lato-Bold;
+    font-size: 16px;
+}
+
+p {
+    font-family: Lato;
+    font-size: 14px;
+}

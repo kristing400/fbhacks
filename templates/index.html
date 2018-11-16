@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	{% load static %}
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:700" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'fbhacks/css/bootstrap-theme.min.css' %}">
+  <link rel="stylesheet" href="{% static 'fbhacks/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'fbhacks/css/index-style.css' %}">
+  <title>Welcome</title>
+</head>
+<body>
+	<div class="top-section">
+		<center>
+			<img id="propic" src="../static/fbhacks/pics/propic-small.jpg">
+			<br/>
+			<img id="logo" src="../static/fbhacks/pics/Net-logo-white.svg">
+		</center>
+		<div class="row">
+			<div class="col-xs-4">
+				<div class="left-align-text">
+					<strong>2</strong><br/>upcoming<br/>events	
+				</div>
+			</div>
+			<div class="col-xs-4">
+				<div class="left-align-text">
+					<strong>4</strong><br/>events<br/>attended
+				</div>
+			</div>
+			<div class="col-xs-4">
+				<div class="left-align-text">
+					<strong>44</strong><br/>people<br/>met
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="my-navbar">
+		<!-- <div class="row"> -->
+				<div class="col-xs-4 active">
+					<h1>Events</h1>
+				</div>
+				<div class="col-xs-4">
+					<h1>History</h1>
+				</div>
+				<div class="col-xs-4">
+					<h1>Contacts</h1>
+				</div>
+		<!-- </div> -->
+	</div>
+	<div class="main-section">
+		<div class="event">
+			<div class="event-image">
+					<img src="../static/fbhacks/pics/event1.jpg">
+			</div>
+			<div class="event-text">
+				<h3>NOVEMBER 12, 2018</h3>
+				<h4>WeMeet - San Jose Networking & Happy Hour</h4>
+				<p>Vbar at Hotel Valencia - San Jose, California</p>
+			</div>
+		</div>
+
+		<div class="event">
+			<div class="event-image">
+					<img src="../static/fbhacks/pics/event2.jpg">
+			</div>
+			<div class="event-text">
+				<h3>DECEMBER 6, 2018</h3>
+				<h4>Meet Oracle - Dinner with Engineers</h4>
+				<p>Aloft Hotel - Mountainview, California</p>
+			</div> 
+		</div>
+	</div>
+</body>
+</html>

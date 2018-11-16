@@ -21,5 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('createProfile/', include('createProfile.urls')),
     path('in_progress',views.in_progress),
-    # path('',index.html)
+    path('', views.index)
 ]

@@ -8,6 +8,11 @@ import os
 import json
 
 @csrf_exempt
+def index(request):
+    template = loader.get_template("index.html")
+    return HttpResponse(template.render())
+
+@csrf_exempt
 def in_progress(request):
     template = loader.get_template("in_progress.html")
     return HttpResponse(template.render())
