@@ -64,7 +64,7 @@ def editProfiles(request):
             elif home == "" and word['type'] == 'LOCATION' and word['name'].lower() != yourHome:
                 home = word['name']
             else:
-                keyPoints.append(word['name'])
+                keyPoints.append((word['name'], word['salience']))
 
         newContact = {
             'name': name,
@@ -99,16 +99,13 @@ def getKeywords(request):
             if text != "":
                 if inConvo:
                     # look for end phrases assume a convo exists so just append to end of convos
-                    if len(db['convos']) == 0:
-                        inConvo = False
-                    else:
-                        db['convos'][-1]['text'] = db['convos'][-1]['text'] + " " + text
-                        for phrase in end_trigger_phrases:
-                            if phrase in text:
-                                # trigger end of convo
-                                ts = time.time()
-                                db['convos'][-1]['endTime'] = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
-                                inConvo = False
+                    db['convos'][-1]['text'] = db['convos'][-1]['text'] + " " + text
+                    for phrase in end_trigger_phrases:
+                        if phrase in text:
+                            # trigger end of convo
+                            ts = time.time()
+                            db['convos'][-1]['endTime'] = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+                            inConvo = False
                 else:
                     # looking for start trigger phrase
                     for phrase in start_trigger_phrases:
