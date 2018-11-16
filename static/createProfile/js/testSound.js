@@ -30,34 +30,34 @@ function setup() {
 }
 
 function draw() {
-  fill(0);
-  background(200);
+  // fill(0);
+  // background(200);
   micLevel = mic.getLevel();
-  text('Mic volume: ' + str(micLevel), 20, 40);
+  // text('Mic volume: ' + str(micLevel), 20, 40);
 
-  if (micLevel > micThreshold) {
-    fill(0,255,0);
-  }
-  rect(20,60,50,50);
+  // if (micLevel > micThreshold) {
+  //   fill(0,255,0);
+  // }
+  // rect(20,60,50,50);
   if (state == 0) {
-    fill(0);
-    text('Just started. Speak to start recording.', 20, 20);
+    // fill(0);
+    // text('Just started. Speak to start recording.', 20, 20);
     if (micLevel > micThreshold) {
       recorder.record(soundFile);
       state += 1;
     }
   }
   else if (state == 1) {
-    fill(0);
-    text('Recording!', 20, 20);
-    fill(255,0,0);
+    // fill(0);
+    // text('Recording!', 20, 20);
+    // fill(255,0,0);
 
     if (timeSilent > noSoundTime) {
       state += 1;
       timeSilent = 0;
-      fill(0,255,0);
+      // fill(0,255,0);
     }
-    ellipse(200,100,50,50);
+    // ellipse(200,100,50,50);
     if (micLevel < micThreshold) {
       timeSilent += 1;
     }
@@ -66,10 +66,10 @@ function draw() {
     }
   }
   else if (state == 2) {
-    fill(0);
-    text('Sending!', 20, 20);
-    fill(0,255,0);
-    ellipse(200,100,50,50);
+    // fill(0);
+    // text('Sending!', 20, 20);
+    // fill(0,255,0);
+    // ellipse(200,100,50,50);
     recorder.stop();
     var fileName = 'mySound.wav';
     postFile(soundFile, fileName);

@@ -1,22 +1,38 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
-    <style> body {padding: 0; margin: 0;} </style>
-    {% load static %}
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-    <script type="text/javascript" src="{% static 'createProfile/js/p5.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'createProfile/js/p5.dom.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'createProfile/js/p5.sound.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'createProfile/js/testSound.js' %}"></script>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  {% load static %}
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+crossorigin="anonymous"></script>
+  <script type="text/javascript" src="{% static 'createProfile/js/p5.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'createProfile/js/p5.dom.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'createProfile/js/p5.sound.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'createProfile/js/testSound.js' %}"></script>
 
+  <link rel="stylesheet" href="{% static 'fbhacks/css/bootstrap-theme.min.css' %}">
+  <link rel="stylesheet" href="{% static 'fbhacks/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'fbhacks/css/in_progress-style.css' %}">
+  <title>Welcome</title>
+</head>
+<body class="front_bg">
 
-  </head>
-  <body>
-    <p id="keywords">Waiting for keywords...</p>
+  <div class="flex-container">
+    <div class="box">
+      <img src="../../static/fbhacks/pics/Net-logo-white.svg">
+      <h1 class="heading">in progress...</h1>
+      <h2><time>00:00</time></h2>
+    </div>
 
-  </body>
+    <div class="button-container">
+        <button id="end_button" onclick="">End</button>
+    </div>
+  </div>
+
+</body>
+<script type="text/javascript" src="{% static 'fbhacks/js/time.js' %}"></script>
 </html>

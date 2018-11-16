@@ -15,7 +15,7 @@ yourName = "tiffany"
 yourOccupation = "engineer"
 yourHome = "fremont"
 yourCompany = "facebook"
-
+convo = None
 occupation_types = [
     "engineer", "artist", "designer", "actor", "architecture", "sales", "baker","musician",
     "lawyer", "doctor", "dancer", "manager", "recruiter", "banker", "accountant", "consultant", "teacher",
@@ -39,6 +39,12 @@ def isOccupation(s):
         if word in occupation_types:
             return True
     return False
+
+@csrf_exempt
+def in_progress(request):
+    template = loader.get_template("createProfile/in_progress.html")
+    return HttpResponse(template.render())
+
 @csrf_exempt
 def index(request):
     template = loader.get_template("createProfile/index.html")
@@ -89,7 +95,7 @@ def editProfiles(request):
 
 @csrf_exempt
 def getKeywords(request):
-    global inConvo
+    global inConvo, convo
     dirpath = os.path.dirname(os.path.realpath(__file__))
     with open(dirpath + '/db.json') as src:
         db = json.load(src)
@@ -102,13 +108,17 @@ def getKeywords(request):
             if text != "":
                 if inConvo:
                     # look for end phrases assume a convo exists so just append to end of convos
-                    db['convos'][-1]['text'] = db['convos'][-1]['text'] + " " + text
+                    convo['text'] = convo['text'] + " " + text
                     for phrase in end_trigger_phrases:
                         if phrase in text:
                             # trigger end of convo
                             ts = time.time()
-                            db['convos'][-1]['endTime'] = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+                            convo['endTime'] = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+                            db['convos'].append(convo)
                             inConvo = False
+                            with open(dirpath + '/db.json', 'w+') as outfile:
+                                json.dump(db, outfile)
+                            break
                 else:
                     # looking for start trigger phrase
                     for phrase in start_trigger_phrases:
@@ -116,15 +126,14 @@ def getKeywords(request):
                             inConvo = True
                             ts = time.time()
                             startTime = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
-                            db['convos'].append({
+                            convo = {
                                 'text': text,
                                 'startTime': startTime,
                                 'endTime': None
-                            })
+                            }
         else:
             print("no file")
-        with open(dirpath + '/db.json', 'w+') as outfile:
-            json.dump(db, outfile)
+
     return HttpResponse(db)
 
 def viewProfile(request):
