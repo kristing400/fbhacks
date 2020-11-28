@@ -1,7 +1,7 @@
 # Imports the Google Cloud client library
 from google.cloud import language
-from google.cloud.language import enums
-from google.cloud.language import types
+# from google.cloud.language import enums
+# from google.cloud.language import types
 import codecs
 import os
 
@@ -14,9 +14,9 @@ def main(inputText):
     client = language.LanguageServiceClient()
 
     # Instantiates a plain text document.
-    document = types.Document(
+    document = language.Document(
         content=inputText,
-        type=enums.Document.Type.PLAIN_TEXT)
+        type=language.Document.Type.PLAIN_TEXT)
 
     # Detects entities in the document. You can also analyze HTML with:
     #   document.type == enums.Document.Type.HTML

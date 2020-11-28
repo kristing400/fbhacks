@@ -1,6 +1,4 @@
 from google.cloud import speech
-from google.cloud.speech import enums
-from google.cloud.speech import types
 import os
 import io
 def main(audio_file):
@@ -23,16 +21,17 @@ def main(audio_file):
     # The name of the audio file to transcribe
     # Loads the audio into memory
     content = audio_file.read()
-    audio = types.RecognitionAudio(content=content)
+    audio = speech.RecognitionAudio(content=content)
 
     config = types.RecognitionConfig(
-        encoding=enums.RecognitionConfig.AudioEncoding.LINEAR16,
+        encoding= speech.RecognitionConfig.AudioEncoding.LINEAR16,
         sample_rate_hertz=44100,
         language_code='en-US')
 
     # Detects speech in the audio file
     result_txt = ""
-    response = client.recognize(config, audio)
+    request = {request:{"config": config, "audio": audio}}
+    response = client.recognize(request)
     for result in response.results:
         print('Transcript: {}'.format(result.alternatives[0].transcript))
         result_txt += result.alternatives[0].transcript
